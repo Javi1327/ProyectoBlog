@@ -20,6 +20,7 @@ const DetalleBlog = () => {
       },[])
 
     return (
+      <div className="contenedor"> 
         <div className="contenedorDetalle">
             <img src={blog.imagen} alt={blog.titulo} className="imagen"/>
             <div className="datos">
@@ -35,6 +36,7 @@ const DetalleBlog = () => {
             </div>
             </div>
         </div>
+      </div>  
     )    
 }
 
