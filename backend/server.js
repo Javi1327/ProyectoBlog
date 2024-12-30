@@ -3,6 +3,7 @@ const dotenv = require ("dotenv")
 const connectBD = require("./config/Database")
 const authRoutes = require("./routes/authRoutes")
 
+
 dotenv.config()
 connectBD()
 
