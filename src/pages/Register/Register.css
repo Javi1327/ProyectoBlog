@@ -1,0 +1,32 @@
+.contenedor2{
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Altura del contenedor igual a la altura de la ventana */
+    width: 100%;
+    background-color: rgb(223, 242, 245);
+}
+
+.input2{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.form2{
+    background-color: rgb(171, 207, 235); 
+    height: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+	border-radius: 8px;
+    padding-top: 2%;
+}
+
+.boton{
+    margin-top: 20px;
+}
+
+.label1{
+    text-align: start;
+}

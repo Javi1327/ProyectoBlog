@@ -1,0 +1,33 @@
+.contenedor1{
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Altura del contenedor igual a la altura de la ventana */
+    width: 100%;
+    background-color: rgb(233, 231, 231);
+}
+
+.input1{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.form1{
+    background-color: rgb(151, 181, 204); 
+    width: 250px;
+	height: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+	border-radius: 8px;
+    padding-top: 2%;
+}
+
+.boton{
+    margin-top: 20px;
+}
+
+.label1{
+    text-align: start;
+}

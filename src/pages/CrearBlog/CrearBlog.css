@@ -19,9 +19,8 @@ h1{
 	font-size: 22px;
 	padding: 10px;
 }
-form{
+.form{
     background-color: rgb(177, 216, 216);
-	max-width: 500px;
 	margin: auto;  /*para que el form siempre este centrado en la pagina*/
 	box-shadow: 0 0 55px rgba(17, 17, 17, 0.911); /*sombreado del formulario en blanco*/
 	margin-top: 50px;

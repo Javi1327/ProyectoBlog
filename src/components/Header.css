@@ -1,35 +1,33 @@
-/* Menu.css */
-.menu {
-    background-color: #d63131;
-    padding: 10px;
-    position: fixed;
-    margin-top: 0;
-    width: 100%;
-    z-index: 3;
-     
-}
-
-.menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.menu li {
-    display: inline;
-    margin-right: 20px;
+.topnav{
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
 }
 
-.menu a {
+.links-start{
+    text-align: center;
+    padding: 10px;
+    transition: background-color 0.5s ease;
+    border-radius: 10px;
+}
+
+.links-start:hover{
+    background-color: #d6d4d050;  /*afecta solo al botom de inicio*/
+    border-radius: 10px;
+}
+
+.links-end a{
     color: white;
-    text-decoration: none;
-    padding: 5px;
+    text-align: center;
+    padding: 10px;
+    transition: background-color 1s ease;
+    border-radius: 20px;
+    margin: 5px;
 }
 
-.menu a:hover {
-    text-decoration: underline;
-}
-.Inicio {
-    margin-right: 60%;
+.links-end a:hover{
+    background-color: #c0bfbf2a;
+    color: rgb(75, 179, 248);
 }

@@ -1,29 +1,56 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css';  
+import { useContext, useEffect } from "react"
+import {AuthContext} from "../context/AuthContext"
+import { Link, useNavigate } from "react-router-dom"
+import "./Header.css"
 
-const Menu = () => {
-    const menuItems = [
-        { className: "Inicio", to: "/", text: "Inicio"},
-        { className: "CreaBlog", to: "/crear-blog", text: "Crer Blog" },
-        { className: "MisBlogs", to: "/mis-blogs", text: "Mis blogs" },
-        { className: "Login", to: "/login", text: "Login" },
-        { className: "Register", to: "/register", text: "Register" },
+const Header = () => {
+     const {isLogged, setIsLogged} = useContext(AuthContext)
+
+    // const links = [{to:"/", text:"inicio"}]
+    // const linksLogin = [{to:"/mis-blogs", text:"Mis Blogs"},{to:"/crear-blog", text:"crear blog"}]
+    // const linksLogout = [{to:"/login", text:"Login"},{to:"/register", text:"register"}]
+
+    const navigate = useNavigate(); // Inicializa useNavigate
+
+    const links = [{ to: "/", text: "Inicio" }];
+    const linksLogin = [
+        { to: "/mis-blogs", text: "Mis Blogs" },
+        { to: "/crear-blog", text: "Crear Blog" },
+    ];
+    const linksLogout = [
+        { to: "/login", text: "Login" },
+        { to: "/register", text: "Register" },
     ];
 
-    return (
-        <nav className="menu">
-            <ul>
-                {menuItems.map((link) => (
-                    <li key={link.to}>
-                    <Link className={link.className} to={link.to}>
-                        {link.text}
-                    </Link>
-                </li>
-                ))}
-            </ul>
-        </nav>
-    );
-};
+    const handleLogout = () => {
+        setIsLogged(false); // Cambia el estado de autenticación
+        navigate("/"); // Redirige al usuario a la página de inicio
+    };
 
-export default Menu;
+    return (
+        <nav className="topnav">
+            <div className="links-start">
+
+                {links.map((link) => (
+                    <Link key={link.to} to={link.to}> {link.text} </Link>
+                ))}
+            </div>
+
+            <div className="links-end">
+
+                {isLogged && linksLogin.map((link) => (
+                    <Link key={link.to} to={link.to}> {link.text} </Link>
+                ))}
+
+                {isLogged && <a onClick={handleLogout}>Cerrar Sesion</a>}
+                
+                {!isLogged && linksLogout.map((link) => (
+                    <Link key={link.to} to={link.to}> {link.text} </Link>
+                ))}
+            </div>
+             
+        </nav>
+    )
+}
+
+export default Header

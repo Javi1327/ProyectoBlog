@@ -1,9 +1,13 @@
 import './App.css'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import {AuthProvider} from './context/AuthContext'
 import Home from './pages/Home/Home'
+import Header from './components/Header'
 import DetalleBlog from './pages/Home/DetalleBlog'
-import Menu from './components/Header'
 import CrearBlog from './pages/CrearBlog/CrearBlog'
+import Login from './pages/Login/Login'
+import Register from './pages/Register/Register'
+
 
 
 // Componente de marcador de posición
@@ -11,20 +15,23 @@ const Prueba = ({ message }) => {
   return <div>{message}</div>;
 };
 
+
 function App() {
   
   return (
-    <BrowserRouter>
-      <Menu/>
-      <Routes>
-        <Route path='/' element={<Home/>} /> 
-        <Route path='/blogs/:id' element={<DetalleBlog/>} />      
-        <Route path='/crear-blog' element={<CrearBlog/>} />  
-        <Route path='/mis-blogs' element={<Prueba message="(falta hacer el Componente )" />} />   
-        <Route path='/login' element={<Prueba message="(falta hacer el Componente )" />} />  
-        <Route path='/register' element={<Prueba message="(falta hacer el Componente )" />} />
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider> 
+      <BrowserRouter>
+         <Header/>
+        <Routes>
+          <Route path='/' element={<Home/>} /> 
+          <Route path='/blogs/:id' element={<DetalleBlog/>} />      
+          <Route path='/crear-blog' element={<CrearBlog/>} />  
+          <Route path='/mis-blogs' element={<Prueba message="(falta hacer el Componente )" />} />   
+          <Route path='/login' element={<Login/>} />  
+          <Route path='/register' element={<Register/>} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 
