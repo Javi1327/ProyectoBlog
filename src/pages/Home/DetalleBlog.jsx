@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
-import "./DetalleBlog.css"
 import { Link } from "react-router-dom"
+import "./Detalleblog.css"
 
 const DetalleBlog = () => {
   const backurl = import.meta.env.VITE_BACK_URL
