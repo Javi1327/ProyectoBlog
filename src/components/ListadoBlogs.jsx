@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Blog from "../pages/Home/Blogs";
-//import BlogAdmin from "../pages/mis-blogs/BlogsAdmin";
+import BlogAdmin from "../pages/mis-blogs/BlogsAdmin";
 
 const ListadoBlogs = ({ isLogged = false }) => {
   // taigo la url del back que esta en env  
@@ -9,8 +9,26 @@ const ListadoBlogs = ({ isLogged = false }) => {
 
   //si es true hardcodeamos si es false mostramos todo
   const [blogs, setBlogs] = useState([]);
-  //const [blogsFilter, setBlogsFilter] = useState([]);
+  
+  const [filteredBlogs, setBlogsFilter] = useState([]);
   //let blogsFilter = blogs
+
+  if (isLogged) {
+    
+    const filteredBlogs = blogs.filter((blog) => blog.author === "user1");
+
+    const handleDelete = (id) => {
+      setBlogsFilter(blogs.filter((blog) => blog.id !== id))
+    }
+
+    return (  
+      <>
+        {filteredBlogs.map((blog) => (
+          <BlogAdmin blog={blog} key={blog.source.id} handleDelete={handleDelete}/>
+        ))}
+      </>
+    );
+  }
 
   const fetchback = async () => {
     const response = await fetch(`${backurl}blogs`)
@@ -33,6 +51,8 @@ const ListadoBlogs = ({ isLogged = false }) => {
     fetchback()
   },[])
 
+
+  
 //   const handleDelete = (id) => {
 //     fetchBorrarBlog(id)
 //   }
