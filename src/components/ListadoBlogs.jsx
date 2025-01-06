@@ -10,8 +10,14 @@ const ListadoBlogs = ({ isLogged = false }) => {
   //si es true hardcodeamos si es false mostramos todo
   const [blogs, setBlogs] = useState([]);
   
-  const [filteredBlogs, setBlogsFilter] = useState([]);
-  //let blogsFilter = blogs
+
+  let blogsFilter = blogs
+
+  const handleDelete = (id) => {
+    console.log("llega",id)
+    blogsFilter = blogsFilter.filter((blog) => blog.source.id == id)
+
+  }
 
   if (isLogged) {
     
