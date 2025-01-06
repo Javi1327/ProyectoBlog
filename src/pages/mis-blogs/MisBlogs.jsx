@@ -3,7 +3,7 @@ const MisBlogs = () => {
     return (
       <div>
         <h1>Mis Blogs</h1>
-        <ListadoBlogs/>
+        <ListadoBlogs isLogged={true}/>
       </div>
     );
   }
