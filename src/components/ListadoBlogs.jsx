@@ -5,7 +5,7 @@ import Blog from "../pages/Home/Blogs";
 const ListadoBlogs = ({ isLogged = false }) => {
   // taigo la url del back que esta en env  
 //   const backurl = import.meta.env.VITE_BACK_URL
-   const backurl = "http://localhost:3000/"
+   const backurl = import.meta.env.VITE_BACK_URL
 
   //si es true hardcodeamos si es false mostramos todo
   const [blogs, setBlogs] = useState([]);

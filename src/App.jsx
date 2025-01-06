@@ -21,11 +21,12 @@ function App() {
   return (
     <AuthProvider> 
       <BrowserRouter>
-         <Header/>
+        <Header/>
         <Routes>
           <Route path='/' element={<Home/>} /> 
           <Route path='/blogs/:id' element={<DetalleBlog/>} />      
           <Route path='/crear-blog' element={<CrearBlog/>} />  
+          <Route path='/modificar-blog/:idblog' element={<Prueba message="(falta hacer el Componente )" />} /> 
           <Route path='/mis-blogs' element={<Prueba message="(falta hacer el Componente )" />} />   
           <Route path='/login' element={<Login/>} />  
           <Route path='/register' element={<Register/>} />
