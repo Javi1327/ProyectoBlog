@@ -8,6 +8,7 @@ import CrearBlog from './pages/CrearBlog/CrearBlog'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import MisBlogs from './pages/mis-blogs/MisBlogs'
+import ModificarBlog from './pages/modificar-blog/ModificarBlog'
 
 
 
@@ -28,7 +29,7 @@ function App() {
           <Route path='/' element={<Home/>} /> 
           <Route path='/blogs/:id' element={<DetalleBlog/>} />      
           <Route path='/crear-blog' element={<CrearBlog/>} />  
-          <Route path='/modificar-blog/:idblog' element={<CrearBlog/>} />
+          <Route path='/modificar-blog/:idblog' element={<ModificarBlog/>} />
           <Route path='/mis-blogs/' element={<MisBlogs/>} />
           <Route path='/login' element={<Login/>} />  
           <Route path='/register' element={<Register/>} />

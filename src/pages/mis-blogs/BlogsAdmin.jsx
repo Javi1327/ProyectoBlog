@@ -1,15 +1,16 @@
 import "./../Home/Blogs.css"
 import { Link } from "react-router-dom"
+import "./BlogsAdmin.css"
 
-const BlogAdmin = ({blog, HandleDelete}) => {
+const BlogAdmin = ({blog, handleDelete}) => {
  console.log(blog)
 
  const eliminarBlog = () => {
-    HandleDelete(blog.id)
+    handleDelete(blog.id)
  }
 
     return (
-        <div className="contenedorCard">
+        <div className="contenedorAdminCard">
             <img src={blog.imagen} alt={blog.titulo} className="imagen"/>
             <div className="datos">
                 <h2 className="titulo">{blog.titulo}</h2>
@@ -18,10 +19,11 @@ const BlogAdmin = ({blog, HandleDelete}) => {
                     <p>{ new Date(blog.fechaPublicacion).toLocaleString("es")}</p>
                 </div>
                 <p className="description">{blog.descripcion}</p>
-                <Link to={`/modificar-blog/${blog.source.id}`}>
-                    <button>Modificar</button>
+                <p className="content">{blog.contenido} </p>
+                <Link to={`/modificar-blog/${blog.id}`}>
+                    <button  className="boton">Modificar</button>
                 </Link>
-                <button onClick={() => eliminarBlog()}>Eliminar</button>
+                <button className="boton eliminar" onClick={() => eliminarBlog() }>Eliminar</button>
             </div>
         </div>
     )

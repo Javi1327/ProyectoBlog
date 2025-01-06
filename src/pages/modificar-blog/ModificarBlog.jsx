@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+//import { toast } from "react-toastify";
 const ModificarBlog = () => {
   const backurl = import.meta.env.VITE_BACK_URL
   const { idblog } = useParams();
@@ -47,10 +47,10 @@ const ModificarBlog = () => {
     console.log(respuesta);
     console.log(respuesta.ok)
     if(respuesta.status === "success"){
-      toast.success("Blog modificado");
+      alert("Blog modificado");
       navigate("/mis-blogs");
     }else{
-      toast.error("Blog no modificado");
+      alert("Blog no modificado");
     }
   };
 

@@ -1,0 +1,17 @@
+.contenedorAdminCard {
+    width: 50% ;
+    height: fit-content ;
+    background-color: rgb(189, 235, 243);
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.eliminar {
+    background-color: rgb(243, 47, 47);
+    color: rgb(248, 241, 241);
+}
+
+.eliminar:hover {
+    background-color: rgb(255, 0, 0);
+    color: rgb(15, 15, 15);
+}
