@@ -4,7 +4,7 @@ import "./DetalleBlog.css"
 import { Link } from "react-router-dom"
 
 const DetalleBlog = () => {
-  const backurl = "http://localhost:3000/"
+  const backurl = import.meta.env.VITE_BACK_URL
 
     const { id } = useParams()
     const [blog, setBlog] = useState({})

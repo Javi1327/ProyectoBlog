@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 const BlogAdmin = ({blog, HandleDelete}) => {
  console.log(blog)
 
- const EliminarBlog = () => {
-    HandleDelete(blog.source.id)
+ const eliminarBlog = () => {
+    HandleDelete(blog.id)
  }
 
     return (
@@ -19,8 +19,9 @@ const BlogAdmin = ({blog, HandleDelete}) => {
                 </div>
                 <p className="description">{blog.descripcion}</p>
                 <Link to={`/modificar-blog/${blog.source.id}`}>
-                    <button>Modificar</button></Link>
-                <button onClick={EliminarBlog()}>Eliminar</button>
+                    <button>Modificar</button>
+                </Link>
+                <button onClick={() => eliminarBlog()}>Eliminar</button>
             </div>
         </div>
     )

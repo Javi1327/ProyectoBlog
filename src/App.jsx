@@ -23,7 +23,7 @@ function App() {
   return (
     <AuthProvider> 
       <BrowserRouter>
-         <Header/>
+        <Header/>
         <Routes>
           <Route path='/' element={<Home/>} /> 
           <Route path='/blogs/:id' element={<DetalleBlog/>} />      

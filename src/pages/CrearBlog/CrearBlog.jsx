@@ -5,7 +5,7 @@ import "./CrearBlog.css"
 const CrearBlog = () => {
     const navigate = useNavigate()
 
-    const backurl = "http://localhost:3000/"
+    const backurl = import.meta.env.VITE_BACK_URL
 
     const [titulo,setTitulo]= useState("")
     const [imagen,setImagen]= useState("")
