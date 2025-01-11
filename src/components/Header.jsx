@@ -4,12 +4,8 @@ import { Link, useNavigate } from "react-router-dom"
 import "./Header.css"
 
 const Header = () => {
-     const {isLogged, setIsLogged} = useContext(AuthContext)
-
-    // const links = [{to:"/", text:"inicio"}]
-    // const linksLogin = [{to:"/mis-blogs", text:"Mis Blogs"},{to:"/crear-blog", text:"crear blog"}]
-    // const linksLogout = [{to:"/login", text:"Login"},{to:"/register", text:"register"}]
-
+    const {isLogged, setIsLogged, setAccessToken, setRefreshToken } = useContext(AuthContext)
+ 
     const navigate = useNavigate(); // Inicializa useNavigate
 
     const links = [{ to: "/", text: "Inicio" }];
@@ -24,6 +20,9 @@ const Header = () => {
 
     const handleLogout = () => {
         setIsLogged(false); // Cambia el estado de autenticación
+        setAccessToken(null);
+        setRefreshToken(null);
+        //alert("Logout"); // serrar sesion
         navigate("/"); // Redirige al usuario a la página de inicio
     };
 

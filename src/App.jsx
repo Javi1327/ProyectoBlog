@@ -9,15 +9,7 @@ import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import MisBlogs from './pages/mis-blogs/MisBlogs'
 import ModificarBlog from './pages/modificar-blog/ModificarBlog'
-
-
-
-
-// Componente de marcador de posición
-const Prueba = ({ message }) => {
-  return <div>{message}</div>;
-};
-
+ 
 
 function App() {
   

@@ -1,5 +1,5 @@
 .Home {
-    background: url(https://th.bing.com/th/id/OIP.DN01MNXQvhCpp-weivn7DAHaFQ?w=232&h=180&c=7&r=0&o=5&pid=1.7);
+    background: url("img/Sport.jpg");
     background-repeat: no-repeat;
     background-size: 100% , 50% ;
     height: 100dvh;
@@ -7,7 +7,7 @@
 }
 
 .Titulo {
-    padding-top: 10%;
+    padding-top: 1%;
     font-size: 40px;
     font-weight: 700;
 }

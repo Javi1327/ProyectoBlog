@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import "./CrearBlog.css"
 
 const CrearBlog = () => {
@@ -11,35 +13,61 @@ const CrearBlog = () => {
     const [imagen,setImagen]= useState("")
     const [descripcion,setDescripcion]= useState("")
     const [contenido,setContenido]= useState("")
+    const { accessToken,handleRefreshToken } = useContext(AuthContext);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault() // evitar q recargue la pagina
-        const blog = {
-            titulo: titulo,
-            descripcion: descripcion,
-            contenido: contenido,
-            imagen: imagen,
-            //author: "user1"
-        }
+
+        // Validación de campos
+      if (!titulo || !descripcion || !contenido || !imagen) {
+        alert("Por favor, completa todos los campos.");
+        return;
+      }
+
+      const blog = {
+        titulo: titulo,
+        descripcion: descripcion,
+        contenido: contenido,
+        imagen: imagen,
+        //author: "user1"
+      }
         
-        const respuesta = await fetchback(blog) // fetch al back
-        if(respuesta){
-            alert("Blog creado")
-            navigate("/mis-blogs")
-        }else{
-            alert("Blog no creado")
+      try {
+        let respuesta = await fetchback(blog);
+        if (respuesta === -1) {
+            respuesta = await fetchback(blog);
         }
-        console.log(blog)
+
+        if (respuesta) {
+            alert("Blog creado");
+            navigate("/mis-blogs");
+        } else {
+            alert("Blog no creado");
+        }
+      } catch (error) {
+        console.error("Error al crear el blog:", error);
+        alert("Hubo un problema al crear el blog. Inténtalo de nuevo.");
+      }
+      console.log(blog);
     }
 
     const fetchback = async (blog) => {
       const response = await fetch(`${backurl}blogs/`, {
         method: "POST",
         headers:{
-            "Content-Type": "application/json",
+          "Content-Type": "application/json",
+          "Authorization":accessToken
         },
         body: JSON.stringify(blog),
-      }) // metdo body heders
+      }) // metodo body heders
+
+      if(response.status === 401){
+        const res = await handleRefreshToken();
+        if(res === -1){
+          navigate("/login");
+        } 
+      }
 
       const responsejson = await response.json()
       console.log(responsejson.data)
@@ -60,7 +88,8 @@ const CrearBlog = () => {
                     <label htmlFor="titulo" className="label">Titulo</label>
                     <input
                       type="text"
-                      id="titulo" 
+                      id="titulo"
+                      maxLength={30} 
                       onChange={(e) => setTitulo(e.target.value)} 
                     />
                 </div>
@@ -69,6 +98,7 @@ const CrearBlog = () => {
                     <input
                       type="text"
                       id="descripcion"
+                      maxLength={200}
                       onChange={(e) => setDescripcion(e.target.value)}
                     />
                 </div>

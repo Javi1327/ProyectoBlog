@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import "./Register.css"
 
 const Register =() => {
@@ -8,20 +9,29 @@ const Register =() => {
     const [fecha, setFecha] = useState("")
     const [contraseña, setContraseña] = useState("")
     const [contraseña2, setContraseña2] = useState("")
+    const navigate = useNavigate();
+    
 
-    const handleSubmit = (e) =>{
+    const handleRegisterBack = async (data) => {
+        const response = await fetch(`${import.meta.env.VITE_BACK_URL}auth/register`,{
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        console.log(`${import.meta.env.VITE_BACK_URL}auth/register`);
+        const responsejson = await response.json();
+        console.log(responsejson.data);
+          
+        if(response.ok){
+            alert("Usuario creado");
+            navigate("/login"); //navigate a login
+        }
+    }
+
+    const handleSubmit = async (e) =>{
         e.preventDefault()
-        // Validar campos vacíos
-        if (usuario === "" || email === "" || fecha === "" || contraseña === "" || contraseña2 === "") {
-            setError("Complete los campos para continuar");
-            return;
-        }
-
-        // Validar que las contraseñas coincidan
-        if (contraseña !== contraseña2) {
-            setError("Las contraseñas no coinciden");
-            return;
-        }
 
         const fechaIngresada = new Date(fecha);
         const fechaHoy = new Date();
@@ -32,16 +42,24 @@ const Register =() => {
             return;
         } 
 
-        // Si todas las validaciones pasan, puedes proceder
-        const data = {
-            usuario,
-            email,
-            fecha,
-            contraseña,
-        };
-        console.log(data);
-        alert("Usuario creado");
- 
+        // Validar campos vacíos
+        if (usuario === "" || email === "" || fecha === "" || contraseña === "" || contraseña2 === "") {
+            alert("Complete los campos para continuar");
+        }else{
+            if(contraseña ===contraseña2){
+                const data ={
+                    username:usuario,  // tiene que ser los mismos que estana en el back
+                    email,
+                    fechaNacimiento:fecha,
+                    password:contraseña,
+                }
+                await handleRegisterBack(data)
+                console.log(data)
+                alert("usuario creado")
+            }else{
+            alert("la contraseña no coinciden")
+            }
+        }
     }
 
     return (
