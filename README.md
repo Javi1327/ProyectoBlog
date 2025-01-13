@@ -46,7 +46,15 @@ Esta es una aplicación web desarrollada como parte del trabajo integrador de la
  --- 
 
 ## **Imagenes de la Aplicacion**
-    (Agregar capturas de Home, Register, CrearBlog)
+
+![home](https://github.com/user-attachments/assets/1e3f2ab6-238e-4a75-b332-a683d5f08122)
+
+<img width="942" alt="misblogs" src="https://github.com/user-attachments/assets/0092715d-5db8-494c-9939-6fd823bccc7d" />
+
+<img width="914" alt="crearblog" src="https://github.com/user-attachments/assets/e76c56f5-1093-475b-834b-f21b56decf6d" />
+
+
+
 
 ---  
 
