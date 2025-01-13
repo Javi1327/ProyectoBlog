@@ -2,7 +2,7 @@
     background: url("img/Sport.jpg");
     background-repeat: no-repeat;
     background-size: 100% , 50% ;
-    height: 100dvh;
+    height: 60dvh;
     width: 100%;
 }
 
@@ -10,5 +10,6 @@
     padding-top: 1%;
     font-size: 40px;
     font-weight: 700;
+    color: white;
 }
  

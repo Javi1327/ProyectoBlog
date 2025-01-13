@@ -5,7 +5,8 @@ const Blog = ({blog}) => {
  // console.log(blog)
 
     return (
-        <div className="contenedorCard">
+        <div className="ContPadre">
+            <div className="contenedorCard">
             <img src={blog.imagen} alt={blog.titulo} className="imagen"/>
             <div className="datos">
                 <h2 className="titulo">{blog.titulo}</h2>
@@ -17,6 +18,8 @@ const Blog = ({blog}) => {
                 <Link to={`/blogs/${blog.id}`}className="verMas">Ver mas</Link>
             </div>
         </div>
+        </div>
+         
     )
 }
 

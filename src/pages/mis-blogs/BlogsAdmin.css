@@ -1,3 +1,8 @@
+.Contpadre {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+}
 .contenedorAdminCard {
     width: 50% ;
     height: fit-content ;

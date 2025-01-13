@@ -1,3 +1,8 @@
+.ContPadre{
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+}
 .contenedorCard{
     display: flex;
     justify-content: center;

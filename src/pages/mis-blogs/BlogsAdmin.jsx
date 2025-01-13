@@ -10,7 +10,8 @@ const BlogAdmin = ({blog, handleDelete}) => {
  }
 
     return (
-        <div className="contenedorAdminCard">
+        <div className="Contpadre">
+            <div className="contenedorAdminCard">
             <img src={blog.imagen} alt={blog.titulo} className="imagen"/>
             <div className="datos">
                 <h2 className="titulo">{blog.titulo}</h2>
@@ -25,6 +26,7 @@ const BlogAdmin = ({blog, handleDelete}) => {
                 </Link>
                 <button className="boton eliminar" onClick={() => eliminarBlog() }>Eliminar</button>
             </div>
+        </div>       
         </div>
     )
 }
